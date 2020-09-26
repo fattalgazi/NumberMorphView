@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NumberMorphView"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "A view for number tweening or morphing."
   s.description      = <<-DESC
                             NumberMorphView is a view for displaying numbers which can transition or animate
