@@ -151,7 +151,7 @@ public protocol InterpolatorProtocol {
         anim.fromValue = paths[_currentDigit].cgPath;
         anim.toValue = paths[_nextDigit].cgPath;
         anim.repeatCount = 0;
-        anim.fillMode = kCAFillModeForwards;
+        anim.fillMode = CAMediaTimingFillMode.forwards;
         anim.isRemovedOnCompletion = false;
         anim.autoreverses = false;
         
@@ -246,15 +246,15 @@ public protocol InterpolatorProtocol {
         shapeLayer.lineWidth = self.lineWidth;
         shapeLayer.contentsScale = UIScreen.main.scale;
         shapeLayer.shouldRasterize = false;
-        shapeLayer.lineCap = kCALineCapRound;
-        shapeLayer.lineJoin = kCALineJoinRound;
+        shapeLayer.lineCap = CAShapeLayerLineCap.round;
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round;
         
         self.layer.addSublayer(shapeLayer);
         
         displayLink = CADisplayLink(target: self, selector: #selector(NumberMorphView.updateAnimationFrame));
         displayLink?.frameInterval = 1;
         displayLink?.isPaused = true;
-        displayLink?.add(to: RunLoop.current, forMode: RunLoopMode.commonModes);
+        displayLink?.add(to: RunLoop.current, forMode: RunLoop.Mode.common);
         
         endpoints_original[0] = [[500, 800], [740, 400], [500, 0],   [260, 400], [500, 800]];
         endpoints_original[1] = [[383, 712], [500, 800], [500, 0],   [500, 800], [383, 712]];
